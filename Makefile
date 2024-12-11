@@ -9,15 +9,15 @@ TARGET       = librime-emacs$(SUFFIX)
 CC           = gcc
 
 ifdef DEBUG
-	CFLAGS   = -fPIC -g -Wall
+	CFLAGS   = $(CFLAGS) -fPIC -g -Wall
 else
-	CFLAGS   = -fPIC -O2 -Wall
+	CFLAGS   = $(CFLAGS) -fPIC -O2 -Wall
 endif
 
 ifeq ($(SUFFIX), .dylib)
-	LDFLAGS = -dynamiclib
+	LDFLAGS = $(LDFLAGS) -dynamiclib
 else
-	LDFLAGS = -shared
+	LDFLAGS = $(LDFLAGS) -shared
 endif
 
 ifdef LIBRIME_ROOT
