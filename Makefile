@@ -6,18 +6,16 @@ endif
 
 TARGET       = librime-emacs$(SUFFIX)
 
-CC           = gcc
-
 ifdef DEBUG
-	CFLAGS   = $(CFLAGS) -fPIC -g -Wall
+	CFLAGS += -fPIC -g -Wall
 else
-	CFLAGS   = $(CFLAGS) -fPIC -O2 -Wall
+	CFLAGS += -fPIC -O2 -Wall
 endif
 
 ifeq ($(SUFFIX), .dylib)
-	LDFLAGS = $(LDFLAGS) -dynamiclib
+	LDFLAGS += -dynamiclib
 else
-	LDFLAGS = $(LDFLAGS) -shared
+	LDFLAGS += -shared
 endif
 
 ifdef LIBRIME_ROOT
